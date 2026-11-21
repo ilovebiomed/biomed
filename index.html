@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#182947">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Prywatne fiszki i testy w Twojej przeglądarce. Zaimportuj własny plik z danymi — bez przesyłania go na serwer.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="StudyDeck">
+  
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEXUlEQVR4nO3cMU4dVxTH4UOURbiijbyJVEiuqdhHRElJibIPKjZA5V2kZSNOEUZ+eoIXbMPcc+//+zbg0bzzm3M9wDv79PnLt4JQv42+ABhJAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARDt99EX8J5u7h5GX0KE2+vL0ZfwbqYO4Hjg7x+fBl1JluP7PnMQZzN+N+j2ARj4Hq4uzqtqzhCmCeDwqWPwe9pCqJonhikCuLl7MPSTubo4nyKC1gE46sxthqNR2wA89dfReRu0/DmA4V/L/eNT21fU7QIw/GvqGkGrAAz/2jpG0CYAw5+hWwQtAjD8WTpFMDwAw5+pSwRDAzD82TpEMHwDwEjDAvD0p2r8FhgSgOHn0MgIHIGIJgCi7R6A4w8vGXUMsgGItmsAnv6cMmIL2ABEEwDRBEC03QJw/uct9v5/gA1AtKm/Ge69fP37j9GX0NKff/0z+hI+XHQABv+07f6sHELsEcjwv93K9ypuA6z8YX6kVbdB7AaAqrAAPP1/3Wr3MCaA1T64kVa6lzEBwEsiAljpidXFKvc07i3QKau94fhZqwz3W0RsgLcw/N8l3QsBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEM2vQz9L+hXgpN/2/D82ANEEQDQBEE0ARBMA0QRANK9Bn3k1mMkGIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAovl7gGezfS2Kv194HzYA0QRANAEQTQBEEwDRBEA0r0Gfea2YyQYgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAns325bgfKele+FqUA0kfPP+J2AC+8+f9rXJPIwKA18QEsMoTq4OV7mVMAFVrfXCjrHYPowKAY3FvgbYnmDc+P2a1J/8mdgOs+oF+hJXvVdwGOGQbnLby4G+iA9gkfNC8LPYIBFU7BnB7fVlXF+d7/XNM6urivG6vL3f792wAogmAaAIg2q4B+H8Ap+x9/q+yAQi3ewC2AC8Z8fSvsgEIJwCiDQnAMYhDo44/VQM3gAioGjv8VY5AhBsagC2QbfTTv6rBBhBBpg7DX9UggCoRpOky/FVNAqgSQYpOw1/VKIAqEayu2/BXNQugSgSr6jj8VQ0DqBLBaroOf1XV2afPX76NvojX3Nw9VFXV/ePT4CvhZ2wPsa7DX9U8gM3N3YMIJtP5qX9oigCqvm+DKhuhq8Nj6wzDXzVRAIccjXqZ4ajzmikD2BxuhSpB7OX4BcWMg7+ZOoBjx0HwMWYe+GNLBQA/quXPAWAvAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBo/wLjFTCKZ1/TCwAAAABJRU5ErkJggg==">
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEXUlEQVR4nO3cMU4dVxTH4UOURbiijbyJVEiuqdhHRElJibIPKjZA5V2kZSNOEUZ+eoIXbMPcc+//+zbg0bzzm3M9wDv79PnLt4JQv42+ABhJAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARDt99EX8J5u7h5GX0KE2+vL0ZfwbqYO4Hjg7x+fBl1JluP7PnMQZzN+N+j2ARj4Hq4uzqtqzhCmCeDwqWPwe9pCqJonhikCuLl7MPSTubo4nyKC1gE46sxthqNR2wA89dfReRu0/DmA4V/L/eNT21fU7QIw/GvqGkGrAAz/2jpG0CYAw5+hWwQtAjD8WTpFMDwAw5+pSwRDAzD82TpEMHwDwEjDAvD0p2r8FhgSgOHn0MgIHIGIJgCi7R6A4w8vGXUMsgGItmsAnv6cMmIL2ABEEwDRBEC03QJw/uct9v5/gA1AtKm/Ge69fP37j9GX0NKff/0z+hI+XHQABv+07f6sHELsEcjwv93K9ypuA6z8YX6kVbdB7AaAqrAAPP1/3Wr3MCaA1T64kVa6lzEBwEsiAljpidXFKvc07i3QKau94fhZqwz3W0RsgLcw/N8l3QsBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEM2vQz9L+hXgpN/2/D82ANEEQDQBEE0ARBMA0QRANK9Bn3k1mMkGIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAovl7gGezfS2Kv194HzYA0QRANAEQTQBEEwDRBEA0r0Gfea2YyQYgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAns325bgfKele+FqUA0kfPP+J2AC+8+f9rXJPIwKA18QEsMoTq4OV7mVMAFVrfXCjrHYPowKAY3FvgbYnmDc+P2a1J/8mdgOs+oF+hJXvVdwGOGQbnLby4G+iA9gkfNC8LPYIBFU7BnB7fVlXF+d7/XNM6urivG6vL3f792wAogmAaAIg2q4B+H8Ap+x9/q+yAQi3ewC2AC8Z8fSvsgEIJwCiDQnAMYhDo44/VQM3gAioGjv8VY5AhBsagC2QbfTTv6rBBhBBpg7DX9UggCoRpOky/FVNAqgSQYpOw1/VKIAqEayu2/BXNQugSgSr6jj8VQ0DqBLBaroOf1XV2afPX76NvojX3Nw9VFXV/ePT4CvhZ2wPsa7DX9U8gM3N3YMIJtP5qX9oigCqvm+DKhuhq8Nj6wzDXzVRAIccjXqZ4ajzmikD2BxuhSpB7OX4BcWMg7+ZOoBjx0HwMWYe+GNLBQA/quXPAWAvAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBo/wLjFTCKZ1/TCwAAAABJRU5ErkJggg==">
+  <style>
+:root{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17233b;background:#f6f8fd;font-synthesis:none;-webkit-tap-highlight-color:transparent}*{box-sizing:border-box}html{min-height:100%;scroll-behavior:smooth}body{margin:0;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #93b4ff;outline-offset:3px}.hidden{display:none!important}.app-shell{min-height:100vh;display:flex}.sidebar{width:258px;background:#182947;color:#fff;padding:30px 21px;display:flex;flex-direction:column;position:fixed;inset:0 auto 0 0;z-index:10}.brand{display:flex;align-items:center;gap:12px;margin:0 0 43px 5px}.brand-mark{background:#86a5ff;color:#152342;display:grid;place-items:center;font-size:24px;font-weight:900;width:43px;height:43px;border-radius:13px;box-shadow:inset 0 0 0 2px #ffffff50}.brand b{font-size:22px;letter-spacing:-.8px}.brand small{display:block;color:#b2c2df;font-size:11px;margin-top:2px}.side-nav{display:grid;gap:7px}.nav-item{border:0;color:#b9c7e0;background:transparent;border-radius:13px;text-align:left;padding:14px 15px;display:flex;align-items:center;gap:14px;font-weight:650;font-size:14px}.nav-item:hover,.nav-item.active{background:#2d4167;color:white}.nav-icon{font-size:21px;line-height:18px;width:23px;text-align:center;font-weight:700}.side-bottom{margin:auto 5px 0;border:1px solid #455a7a;border-radius:16px;padding:17px;background:#223554}.side-bottom strong{font-size:14px}.side-bottom p{color:#b1c0dc;font-size:12px;line-height:1.6;margin:8px 0 0}.privacy-icon{color:#93bcfc;font-size:29px;margin-bottom:9px}.main{margin-left:258px;min-width:0;flex:1}.topbar{height:83px;border-bottom:1px solid #e8edf5;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4.4vw,68px);background:rgba(255,255,255,.70)}.top-title{font-weight:700;font-size:14px;color:#465470}.top-actions{display:flex;align-items:center;gap:13px}.local-tag,.local-pill{font-size:12px;color:#176856;background:#e3f5ec;padding:9px 12px;border-radius:50px;font-weight:650}.local-tag::first-letter{color:#149b78}.view{max-width:1250px;margin:0 auto;padding:36px clamp(24px,4.4vw,68px) 100px}.hero{background:linear-gradient(108deg,#1d3054 6%,#284578 100%);border-radius:26px;min-height:350px;display:flex;justify-content:space-between;gap:25px;overflow:hidden;position:relative;color:#fff;padding:46px 52px}.hero-content{position:relative;z-index:2;max-width:500px}.eyebrow{display:block;font-size:11px;font-weight:800;letter-spacing:2.5px;color:#a3b9ff;margin-bottom:19px}.eyebrow.dark{color:#5e78ab}.hero h1{font-size:clamp(36px,4.4vw,62px);line-height:1.08;letter-spacing:-2px;margin:0}.hero h1 em{color:#b1c1ff;font-style:normal}.hero p{font-size:15px;line-height:1.75;color:#d1dbf0;max-width:470px;margin:21px 0 27px}.hero-actions{display:flex;flex-wrap:wrap;gap:11px}.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;border-radius:12px;font-size:13px;font-weight:770;padding:11px 18px;transition:transform .15s,background .2s}.button:not(:disabled):active{transform:scale(.98)}.button-primary{color:white;background:#4b75e5;box-shadow:0 6px 18px #3159be2b}.button-primary:hover{background:#375fd3}.button-light{background:#fff;color:#233355}.button-soft{background:#e8edfa;color:#264375}.button-outline{background:white;color:#32496f;border-color:#c9d3e5}.button-success{color:white;background:#188567}.button-danger{color:#b33d4c;background:#ffe9ed}.button-small{min-height:34px;padding:8px 12px;font-size:12px}.hero-art{flex:0 0 32%;position:relative;min-width:190px}.mock-card{position:absolute;top:34px;right:0;transform:rotate(8deg);width:220px;height:230px;background:#fbfdff;color:#26355e;border-radius:22px;box-shadow:0 26px 40px #0d183990;display:flex;flex-direction:column;justify-content:space-between;padding:28px 23px}.mock-card span{color:#8090b8;font-size:10px;font-weight:800;letter-spacing:1.5px}.mock-card strong{font-size:22px;line-height:1.25}.mock-card small{color:#7a89a5;font-size:11px}.mock-back{position:absolute;background:#9cb5ff;width:220px;height:230px;top:37px;right:43px;transform:rotate(-10deg);border-radius:20px;display:grid;place-items:start center;color:#3858ab;padding-top:25px;font-weight:900;letter-spacing:1px}.floating-star{position:absolute;right:220px;top:3px;color:#b8cbff;font-size:35px}.empty-status{display:flex;align-items:flex-start;gap:14px;margin:24px 0;padding:21px 23px;background:white;border:1px solid #dde5f2;border-radius:16px}.status-dot{width:12px;height:12px;border-radius:50%;background:#e9b65f;flex-shrink:0;margin-top:5px}.empty-status strong{font-size:15px}.empty-status p{margin:7px 0 0;color:#657389;line-height:1.55;font-size:13px}.how-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:25px}.how-step{padding:8px 6px}.how-step>span{display:block;color:#6683b7;font-size:13px;font-weight:850;margin-bottom:11px}.how-step strong{font-size:14px}.how-step p{margin:7px 0;color:#718098;font-size:12px;line-height:1.55}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:35px 0 17px}.section-heading h2{font-size:22px;letter-spacing:-.5px;margin:0}.section-heading p{margin:5px 0;color:#7c899f;font-size:13px}.muted-note{font-size:12px;color:#76869d}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.metric{background:#fff;border:1px solid #e2e8f2;border-radius:18px;padding:23px;display:flex;flex-direction:column;min-width:0}.metric>span{font-size:12px;color:#6b7890}.metric strong{font-size:35px;margin:10px 0;letter-spacing:-1.5px}.metric small{font-size:11px;color:#93a0b2}.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px;margin-top:22px}.quick-card{display:flex;align-items:flex-start;flex-direction:column;text-align:left;padding:25px;border:1px solid #dce4f1;border-radius:18px;background:white;min-height:185px}.quick-card:hover{border-color:#a3b9ee;box-shadow:0 12px 30px #1f3c6e12}.quick-symbol{font-size:30px;color:#6589dc;margin-bottom:11px}.quick-card strong{font-size:17px}.quick-card small{font-size:12px;color:#7c8aa0;margin:7px 0 18px}.quick-card>span:last-child{font-size:12px;color:#446bcb;font-weight:800;margin-top:auto}.page-heading{margin:4px 0 26px}.page-heading h1{font-size:clamp(34px,4vw,50px);line-height:1.15;letter-spacing:-2px;margin:8px 0}.page-heading p{font-size:14px;color:#78859a;line-height:1.65;margin:10px 0}.control-bar{display:flex;gap:13px;flex-wrap:wrap;align-items:flex-end;margin-bottom:19px}.control-bar label,.setup-controls label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#687892;font-weight:700}.control-bar select,.control-bar input,.setup-controls select{min-height:44px;max-width:100%;border:1px solid #d6e0ed;border-radius:12px;background:white;color:#26395c;padding:10px 32px 10px 13px;font-size:13px;font-weight:600;outline:none}.control-bar>button{margin-top:16px}.panel{background:white;border:1px solid #dfe6f1;border-radius:22px;padding:30px;box-shadow:0 12px 40px #233a5f08}.empty-panel{text-align:center;padding:55px 30px}.empty-panel strong{font-size:19px}.empty-panel p{color:#7a8ba3;margin:10px 0 25px}.card-stage{max-width:830px;margin:auto}.card-progress{display:grid;grid-template-columns:auto minmax(80px,1fr) auto;align-items:center;gap:16px;font-size:13px;color:#5b6c84;font-weight:750;margin:14px 0 18px}.progress-line{height:7px;background:#e6ebf5;border-radius:50px;overflow:hidden}.progress-line>div{height:100%;width:0;background:#587dda;border-radius:50px;transition:width .2s}.topic-small{font-size:11px;max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#8190aa}.flip-container{width:100%;display:block;perspective:1100px;position:relative;height:clamp(330px,44vh,470px);border:0;background:transparent;border-radius:25px;padding:0;color:inherit}.flip-inner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.22,.68,.2,1)}.flip-inner.flipped{transform:rotateY(180deg)}.flip-side{border-radius:26px;position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:42px clamp(26px,6vw,70px);box-shadow:0 15px 42px #22385d1b}.flip-front{background:linear-gradient(145deg,#fff,#f9fbff);border:1px solid #d9e5f8}.flip-back{background:linear-gradient(130deg,#203a68,#365798);color:#fff;transform:rotateY(180deg)}.flip-label{font-size:11px;letter-spacing:2px;font-weight:900;color:#7795d6;margin-bottom:24px}.flip-back .flip-label{color:#aabffd}.flip-text{font-size:clamp(20px,2.85vw,32px);font-weight:760;line-height:1.44;letter-spacing:-.5px;white-space:pre-line;overflow-wrap:anywhere}.answer-text{font-size:clamp(17px,2.05vw,25px);font-weight:620;line-height:1.5}.flip-hint{font-size:12px;color:#899cb6;margin-top:35px}.flip-back .flip-hint{color:#bacbf6}.card-navigation{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:25px 0 0}.arrow-btn{width:47px;height:47px;flex-shrink:0;border:1px solid #d7e0ee;background:white;border-radius:14px;font-size:23px;color:#284c89}.arrow-btn:hover{background:#e8eef9}.card-grading{display:flex;justify-content:center;gap:12px}.shortcut-hint{text-align:center;font-size:12px;color:#9aa5b6;margin:19px 0 0}.quiz-setup{max-width:710px}.setup-head{display:flex;align-items:center;gap:17px;margin-bottom:24px}.setup-icon{display:grid;place-items:center;background:#e7edfc;color:#3a69cb;width:55px;height:55px;border-radius:16px;font-size:26px}.setup-head h2{margin:0;font-size:22px}.setup-head p{color:#8290a5;font-size:13px;margin:7px 0 0}.setup-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-bottom:25px}.quiz-running{max-width:810px}.question-top{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#627493;margin-bottom:12px}.quiz-running h2{font-size:clamp(20px,2.6vw,28px);letter-spacing:-.45px;line-height:1.4;margin:30px 0 28px}.answers{display:grid;gap:10px}.answer-option{display:flex;align-items:center;gap:14px;border:1px solid #dbe4f1;border-radius:14px;background:#fbfcff;padding:16px 17px;text-align:left;color:#2e415e;font-weight:600;line-height:1.45;min-height:57px}.answer-option:not(:disabled):hover{background:#edf3ff;border-color:#a8c0f3}.answer-option .answer-letter{flex-shrink:0;width:32px;height:32px;border:1px solid #d4e2f5;border-radius:9px;display:grid;place-items:center;color:#6480b4;background:white;font-size:12px;font-weight:850}.answer-option.correct{border-color:#69c9a4;background:#e6f9ef;color:#135841}.answer-option.wrong{border-color:#efa5b4;background:#fff0f2;color:#9d3245}.answer-option:disabled{opacity:1}.feedback{background:#eff5ff;border-left:4px solid #5c82dc;border-radius:12px;padding:17px 20px;margin-top:22px;color:#324767}.feedback.good{background:#ecfaf2;border-color:#35a173}.feedback.bad{background:#fff1f0;border-color:#d96e72}.feedback p{line-height:1.6;margin:7px 0 0;font-size:13px}.quiz-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:24px}.text-button{border:0;background:transparent;color:#7e8da2;font-size:13px;font-weight:700}.result-panel{text-align:center;max-width:640px;padding:50px 30px}.result-mark{font-size:48px;color:#5e7dd0}.result-panel h2{font-size:28px}.result-score{font-size:70px;font-weight:850;color:#284b88;letter-spacing:-3px}.result-panel p{color:#6f7e94;line-height:1.6}.result-buttons{display:flex;justify-content:center;gap:12px;margin-top:27px}.topic-list{display:grid;gap:12px}.topic-entry{background:#fff;border:1px solid #dfe6f0;border-radius:14px;overflow:hidden}.topic-entry summary{padding:18px 20px;cursor:pointer;list-style:none;font-weight:760}.topic-entry summary::-webkit-details-marker{display:none}.topic-entry summary::after{content:'＋';float:right;color:#7090d1}.topic-entry[open] summary::after{content:'−'}.topic-body{padding:0 20px 18px;color:#4e617b;line-height:1.6;font-size:13px}.topic-body li{margin:9px 0}.settings-panel{padding:2px 28px}.settings-row{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #e7edf6;padding:25px 0}.settings-row:last-child{border-bottom:none}.settings-row strong{font-size:15px}.settings-row p{font-size:12px;line-height:1.6;color:#75849a;max-width:540px;margin:8px 0 0}.settings-row>button{flex-shrink:0}.privacy-note{border:1px solid #d4e5e9;border-radius:17px;padding:24px;background:#f3fcfa;margin-top:18px}.privacy-note strong{color:#20695d}.privacy-note p{font-size:13px;line-height:1.7;color:#50766f}.mobile-nav{display:none}.notice{background:#fef5da;color:#785c13;margin:12px clamp(24px,4.4vw,68px) 0;padding:13px 17px;border:1px solid #f0dea5;border-radius:12px;font-size:13px;font-weight:650}dialog{border:0;border-radius:20px;max-width:min(500px,90vw);padding:0;box-shadow:0 35px 90px #14233c80}dialog::backdrop{background:#10223a90}.dialog-content{padding:36px;position:relative}.dialog-content h2{font-size:26px;margin:0 0 15px}.dialog-content li{margin:13px 0;line-height:1.6;font-size:14px}.dialog-tip{background:#f4f7ff;padding:14px;border-radius:10px;font-size:12px;line-height:1.6;color:#536990}.dialog-close{position:absolute;right:15px;top:13px;border:0;background:transparent;font-size:25px;color:#7787a1}
+@media(max-width:1130px){.sidebar{width:215px}.main{margin-left:215px}.hero{padding:40px 35px}.hero-art{flex-basis:29%}.mock-card{width:180px;height:205px;padding:20px}.mock-back{width:180px;height:205px}.how-row{gap:10px}.stats-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:790px){.sidebar{display:none}.main{margin:0}.topbar{height:66px;padding:0 20px}.view{padding:25px 20px 110px}.hero{padding:34px 28px;min-height:auto}.hero-content{max-width:100%}.hero-art{display:none}.hero h1{font-size:43px}.hero p{font-size:13px}.mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;padding:9px 8px calc(9px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e1e7f2;z-index:30;box-shadow:0 -4px 30px #111f3c08}.mobile-item{border:0;background:transparent;color:#8090a8;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:22px;font-weight:800;padding:5px 2px}.mobile-item span{font-size:10px;font-weight:650}.mobile-item.active{color:#365fc5}.hero-actions{gap:9px}.flip-container{height:clamp(350px,53vh,490px)}.control-bar{gap:10px}.control-bar label{flex:1;min-width:120px}.card-grading{gap:9px}.setup-controls{grid-template-columns:1fr}.settings-row{align-items:flex-start;flex-direction:column}.settings-row>button{width:100%}.how-row{grid-template-columns:1fr;gap:2px;margin-top:12px}.how-step{border-top:1px solid #e5eaf5;padding:17px 0}.top-actions{gap:6px}}
+@media(max-width:450px){.hero{padding:27px 23px;border-radius:20px}.hero h1{font-size:39px}.hero p{font-size:13px}.hero-actions .button{width:100%}.top-title{font-size:12px}.local-tag{display:none}.stats-grid{gap:9px}.metric{padding:18px 14px}.metric strong{font-size:30px}.quick-grid{grid-template-columns:1fr;gap:10px}.quick-card{min-height:135px}.view{padding:23px 15px 115px}.page-heading h1{font-size:36px}.flip-side{padding:33px 22px}.flip-text{font-size:20px}.answer-text{font-size:17px}.card-navigation{gap:6px}.card-grading{gap:6px}.card-grading .button{font-size:11px;padding:9px 9px;min-height:44px}.arrow-btn{width:40px;height:44px}.topic-small{max-width:100px}.panel{padding:20px 16px}.quiz-running h2{font-size:21px}.answer-option{padding:11px;gap:10px}.result-buttons{flex-direction:column}.topbar{padding:0 15px}.notice{margin:10px 15px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+#quiz-running{scroll-margin-top:92px}
+
+</style>
+  <title>StudyDeck — Prywatne fiszki i testy</title>
+  
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">S</span><div><b>StudyDeck</b><small>Twoja przestrzeń nauki</small></div></div>
+    <nav class="side-nav" aria-label="Menu główne">
+      <button class="nav-item active" data-tab="home"><span class="nav-icon">⌂</span>Pulpit</button>
+      <button class="nav-item" data-tab="cards"><span class="nav-icon">▣</span>Fiszki</button>
+      <button class="nav-item" data-tab="quiz"><span class="nav-icon">✓</span>Test ABCDE</button>
+      <button class="nav-item" data-tab="library"><span class="nav-icon">☷</span>Materiał</button>
+      <button class="nav-item" data-tab="settings"><span class="nav-icon">⚙</span>Moja baza</button>
+    </nav>
+    <div class="side-bottom"><div class="privacy-icon">⌁</div><strong>Prywatne dane</strong><p>Plik z fiszkami pozostaje na tym urządzeniu. Strona niczego nie wysyła.</p></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <span class="top-title">Twoje miejsce do nauki</span>
+      <div class="top-actions"><span class="local-tag">● Dane lokalne</span><button id="install-button" class="button button-soft button-small" type="button">⇩ Zainstaluj</button></div>
+    </header>
+    <div id="notice" class="notice hidden" role="status" aria-live="polite"></div>
+
+    <section id="view-home" class="view">
+      <div class="hero">
+        <div class="hero-content"><span class="eyebrow">UCZ SIĘ NA SWOICH ZASADACH</span><h1>Wiedza zostaje<br><em>z Tobą.</em></h1><p>Fiszki jak w aplikacjach do nauki, testy z pięcioma odpowiedziami i postępy — wszystko prywatnie na Twoim urządzeniu.</p><div class="hero-actions"><button class="button button-primary" id="hero-import">＋ Importuj własną bazę</button><button class="button button-light" id="hero-how">Jak to działa?</button></div></div>
+        <div class="hero-art" aria-hidden="true"><div class="mock-back">Powtarzaj</div><div class="mock-card"><span>PYTANIE</span><strong>Gotowa na kolejny krok?</strong><small>Dotknij fiszki, by zobaczyć odpowiedź ↗</small></div><div class="floating-star">✦</div></div>
+      </div>
+      <div id="empty-info" class="empty-status"><span class="status-dot"></span><div><strong>Jeszcze nie zaimportowano materiału</strong><p>Aplikacja celowo nie zawiera żadnych cudzych treści. Wybierz swój prywatny plik JSON, aby rozpocząć.</p></div></div>
+      <div id="home-data" class="hidden">
+        <div class="section-heading"><div><h2>Twój postęp</h2><p>Zapisany na tym urządzeniu</p></div><span id="source-mini" class="muted-note"></span></div>
+        <div class="stats-grid"><div class="metric"><span>Fiszki</span><strong id="stat-cards">0</strong><small>w Twojej bazie</small></div><div class="metric"><span>Opanowane</span><strong id="stat-known">0</strong><small>oznaczonych jako „Umiem”</small></div><div class="metric"><span>Pytania ABCDE</span><strong id="stat-questions">0</strong><small>w Twojej bazie</small></div><div class="metric"><span>Skuteczność testów</span><strong id="stat-accuracy">—</strong><small>na podstawie odpowiedzi</small></div></div>
+        <div class="quick-grid"><button id="go-cards" class="quick-card"><span class="quick-symbol">▣</span><strong>Ucz się z fiszek</strong><small>Odwracaj, oceniaj, powtarzaj</small><span>Otwórz →</span></button><button id="go-quiz" class="quick-card"><span class="quick-symbol">✓</span><strong>Rozwiąż test</strong><small>ABCDE z informacją zwrotną</small><span>Rozpocznij →</span></button></div>
+      </div>
+      <div class="how-row"><div class="how-step"><span>01</span><strong>Pobierz czystą aplikację</strong><p>Na GitHub trafia jedynie szablon strony.</p></div><div class="how-step"><span>02</span><strong>Importuj prywatny plik</strong><p>Wybierz JSON z pamięci swojego urządzenia.</p></div><div class="how-step"><span>03</span><strong>Ucz się także offline</strong><p>Materiał pozostaje zapisany lokalnie.</p></div></div>
+    </section>
+
+    <section id="view-cards" class="view hidden">
+      <div class="page-heading"><span class="eyebrow dark">TRYB NAUKI</span><h1>Fiszki</h1><p>Jedna karta, jedno pytanie. Dotknij jej, by zobaczyć odpowiedź.</p></div>
+      <div class="control-bar"><label>Ćwiczenie <select id="card-exercise"></select></label><label>Pokaż <select id="card-mode"><option value="all">Wszystkie</option><option value="unknown">Jeszcze nieopanowane</option><option value="repeat">Do powtórki</option></select></label><button class="button button-soft" id="shuffle-cards">⤨ Losuj kolejność</button></div>
+      <div id="cards-empty" class="panel empty-panel hidden"><strong>Nie ma tu jeszcze fiszek.</strong><p>Zaimportuj prywatną bazę albo wybierz inny filtr.</p><button class="button button-primary" data-open-import>Importuj bazę</button></div>
+      <div id="cards-stage" class="card-stage hidden">
+        <div class="card-progress"><span id="card-count">1 / 1</span><div class="progress-line"><div id="card-progress-fill"></div></div><span id="card-topic" class="topic-small"></span></div>
+        <button class="flip-container" type="button" id="flip-card" aria-label="Odwróć fiszkę"><span id="flip-inner" class="flip-inner"><span class="flip-side flip-front"><span class="flip-label">PYTANIE</span><span id="front-text" class="flip-text"></span><span class="flip-hint">Dotknij, aby odkryć odpowiedź ↗</span></span><span class="flip-side flip-back"><span class="flip-label">ODPOWIEDŹ</span><span id="back-text" class="flip-text answer-text"></span><span class="flip-hint">Dotknij, aby wrócić do pytania ↶</span></span></span></button>
+        <div class="card-navigation"><button id="prev-card" class="arrow-btn" aria-label="Poprzednia karta">←</button><div class="card-grading"><button class="button button-outline" id="mark-repeat">↺ Jeszcze raz</button><button class="button button-success" id="mark-known">✓ Umiem</button></div><button id="next-card" class="arrow-btn" aria-label="Następna karta">→</button></div>
+        <p class="shortcut-hint">Możesz też przesuwać kartę palcem w lewo lub w prawo.</p>
+      </div>
+    </section>
+
+    <section id="view-quiz" class="view hidden">
+      <div class="page-heading"><span class="eyebrow dark">SPRAWDŹ WIEDZĘ</span><h1>Test ABCDE</h1><p>Jedna poprawna odpowiedź na pięć. Otrzymasz wynik i wyjaśnienie.</p></div>
+      <div id="quiz-setup" class="panel quiz-setup"><div class="setup-head"><span class="setup-icon">✓</span><div><h2>Nowy test</h2><p>Wybierz zakres i liczbę pytań.</p></div></div><div class="setup-controls"><label>Ćwiczenie<select id="quiz-exercise"></select></label><label>Liczba pytań<select id="quiz-length"><option value="10">10 pytań</option><option value="20">20 pytań</option><option value="all">Wszystkie dostępne</option></select></label><label>Zakres<select id="quiz-mode"><option value="all">Wszystkie pytania</option><option value="wrong">Tylko wcześniej błędne</option></select></label></div><button class="button button-primary" id="start-quiz">Rozpocznij test →</button><p id="quiz-setup-note" class="muted-note"></p></div>
+      <div id="quiz-running" class="panel quiz-running hidden"><div class="question-top"><span id="question-progress">Pytanie 1 z 10</span><span id="question-score">0 pkt</span></div><div class="progress-line"><div id="question-progress-bar"></div></div><h2 id="question-text"></h2><div id="answer-choices" class="answers" role="group" aria-label="Wybierz odpowiedź"></div><div id="quiz-feedback" class="feedback hidden"><strong id="feedback-title"></strong><p id="feedback-text"></p></div><div class="quiz-footer"><button class="button button-primary hidden" id="quiz-next">Następne pytanie →</button><button class="text-button" id="quiz-abort">Zakończ test</button></div></div>
+      <div id="quiz-result" class="panel result-panel hidden"><span class="result-mark">✦</span><h2>Koniec testu!</h2><div id="quiz-result-score" class="result-score">0%</div><p id="quiz-result-desc"></p><div class="result-buttons"><button id="quiz-again" class="button button-primary">Nowy test</button><button id="quiz-retry" class="button button-outline">Powtórz błędne</button></div></div>
+    </section>
+
+    <section id="view-library" class="view hidden"><div class="page-heading"><span class="eyebrow dark">TWOJE MATERIAŁY</span><h1>Przegląd zagadnień</h1><p>Tematy i krótkie notatki z Twojej prywatnej bazy.</p></div><div class="control-bar"><label>Ćwiczenie <select id="library-exercise"></select></label><label>Wyszukaj <input id="library-search" type="search" placeholder="Wpisz słowo kluczowe…"></label></div><div id="library-list" class="topic-list"></div></section>
+
+    <section id="view-settings" class="view hidden"><div class="page-heading"><span class="eyebrow dark">PRYWATNOŚĆ</span><h1>Moja baza</h1><p>Twoje fiszki i wyniki są przechowywane lokalnie. Nie są częścią publicznej strony.</p></div><div class="panel settings-panel"><div class="settings-row"><div><strong>Importuj bazę JSON</strong><p>Wybierz plik z fiszkami i pytaniami. Niczego nie przesyłamy do serwera.</p></div><button class="button button-primary" data-open-import>Wybierz plik</button></div><div class="settings-row"><div><strong id="settings-db-title">Nie zaimportowano bazy</strong><p id="settings-db-details">Na urządzeniu nie zapisano jeszcze materiałów.</p></div><span class="local-pill">Lokalnie</span></div><div class="settings-row"><div><strong>Eksport prywatnej kopii</strong><p>Zapisz swoją bazę razem z postępami. Nie udostępniaj tego pliku publicznie.</p></div><button class="button button-soft" id="export-backup">Pobierz kopię</button></div><div class="settings-row"><div><strong>Wyczyść tylko postępy</strong><p>Usuń historię wyników, pozostawiając pytania i fiszki.</p></div><button class="button button-outline" id="reset-progress">Wyczyść wyniki</button></div><div class="settings-row"><div><strong>Usuń bazę z urządzenia</strong><p>Usuń pobrane treści oraz wyniki z pamięci tej aplikacji.</p></div><button class="button button-danger" id="delete-database">Usuń bazę</button></div></div><div class="privacy-note"><strong>Co trafia na GitHub?</strong><p>Wyłącznie pliki tej pustej aplikacji (HTML, CSS, JavaScript, ikony). Żadne importowane fiszki, pytania, odpowiedzi czy wyniki nie są wysyłane do GitHuba. Zachowaj prywatny plik JSON poza repozytorium.</p><p>Uwaga: zapis w przeglądarce nie jest szyfrowanym sejfem. Osoba mająca dostęp do odblokowanego urządzenia i profilu przeglądarki może uzyskać dostęp do danych. Skasowanie danych witryny lub aplikacji może usunąć postępy.</p></div></section>
+  </main>
+</div>
+
+<nav class="mobile-nav" aria-label="Menu mobilne"><button class="mobile-item active" data-tab="home">⌂<span>Start</span></button><button class="mobile-item" data-tab="cards">▣<span>Fiszki</span></button><button class="mobile-item" data-tab="quiz">✓<span>Test</span></button><button class="mobile-item" data-tab="library">☷<span>Materiał</span></button><button class="mobile-item" data-tab="settings">⚙<span>Baza</span></button></nav>
+<input id="file-input" type="file" accept=".json,application/json" hidden>
+<dialog id="how-dialog"><div class="dialog-content"><button id="close-dialog" class="dialog-close" aria-label="Zamknij">×</button><span class="eyebrow dark">NA START</span><h2>Jak zacząć?</h2><ol><li>Opublikuj w GitHub Pages <strong>wyłącznie pustą aplikację</strong>.</li><li>Otwórz ją w Safari lub Chrome i dodaj do ekranu głównego.</li><li>Otwórz zainstalowaną aplikację, kliknij <strong>Importuj bazę</strong> i wybierz prywatny plik JSON.</li><li>Ucz się z fiszek i rozwiązuj testy — wszystko pozostaje lokalnie.</li></ol><p class="dialog-tip">Na iPadzie dodaj stronę do ekranu głównego <strong>przed importem</strong>. Aplikacja uruchomiona z ikony może mieć osobny magazyn danych od karty Safari.</p><button class="button button-primary" id="dialog-ok">Rozumiem</button></div></dialog>
+<script>
+'use strict';
+/* This script contains NO cards, questions, source text, or sample dataset. */
+const $=(id)=>document.getElementById(id);
+const $$=(query)=>Array.from(document.querySelectorAll(query));
+const DB_NAME='studydeck-private-user-v1';
+let db=null, database=null, stats=emptyStats(), storeAvailable=true;
+let activeTab='home';
+let cardPool=[],cardPosition=0,cardFlipped=false;
+let quizPool=[],quizPos=0,quizCorrect=0,quizSelected=false,quizMissed=[];
+let deferredInstall=null;
+function emptyStats(){return {known:[],repeat:[],wrong:[],answered:0,right:0,tests:0};}
+function showNotice(message){const n=$('notice');n.textContent=message;n.classList.remove('hidden');}
+function clearNotice(){$('notice').classList.add('hidden');}
+function setText(id,value){$(id).textContent=String(value??'');}
+function safeString(v){return typeof v==='string'?v.trim():'';}
+function shuffle(items){let a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function escapeTitle(v){return String(v||'').slice(0,120);}
+
+function openDatabase(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window)){reject(new Error('IndexedDB unavailable'));return;}
+ const request=indexedDB.open(DB_NAME,1);
+ request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains('private'))request.result.createObjectStore('private');};
+ request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error||new Error('DB error'));
+});}
+function readStore(key){return new Promise((resolve,reject)=>{if(!db){resolve(null);return;}const tx=db.transaction('private','readonly');const req=tx.objectStore('private').get(key);req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>reject(req.error);});}
+function writeStore(key,val){return new Promise((resolve,reject)=>{if(!db){resolve();return;}const tx=db.transaction('private','readwrite');tx.objectStore('private').put(val,key);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
+function deleteStore(key){return new Promise((resolve,reject)=>{if(!db){resolve();return;}const tx=db.transaction('private','readwrite');tx.objectStore('private').delete(key);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
+async function saveStats(){try{await writeStore('progress',stats);}catch(e){showNotice('Nie udało się zapisać postępów. Wyeksportuj prywatną kopię, jeśli potrzebujesz je zachować.');}}
+function validateDatabase(d){
+ if(!d||typeof d!=='object'||Array.isArray(d))throw Error('Plik nie zawiera poprawnego obiektu JSON.');
+ if(!Array.isArray(d.cards)||!Array.isArray(d.questions))throw Error('Brakuje tablic cards lub questions.');
+ if(d.cards.length===0||d.questions.length===0)throw Error('Baza musi zawierać przynajmniej jedną fiszkę i jedno pytanie.');
+ if(d.cards.length>30000||d.questions.length>30000)throw Error('Zbyt duża liczba elementów.');
+ const ids=new Set(),qids=new Set();
+ const cards=d.cards.map((c,i)=>{
+   if(!c||typeof c!=='object')throw Error(`Nieprawidłowa fiszka ${i+1}.`);
+   const id=safeString(c.id),question=safeString(c.question),answer=safeString(c.answer);
+   if(!id||!question||!answer||question.length>4000||answer.length>10000||ids.has(id))throw Error(`Błędne pola fiszki ${i+1}.`);
+   ids.add(id);return {id,question,answer,exercise:Number(c.exercise)||0,topic:safeString(c.topic)};
+ });
+ const questions=d.questions.map((q,i)=>{
+   if(!q||typeof q!=='object')throw Error(`Nieprawidłowe pytanie ${i+1}.`);
+   const id=safeString(q.id),question=safeString(q.question);
+   if(!id||qids.has(id)||!question||!Array.isArray(q.options)||q.options.length!==5||!Number.isInteger(q.correct)||q.correct<0||q.correct>4)throw Error(`Pytanie ${i+1} musi mieć 5 odpowiedzi i poprawny indeks 0–4.`);
+   const options=q.options.map(x=>safeString(x));
+   if(options.some(x=>!x||x.length>4000))throw Error(`Pytanie ${i+1} ma pustą odpowiedź.`);
+   qids.add(id);return {id,question,options,correct:q.correct,explanation:safeString(q.explanation),exercise:Number(q.exercise)||0};
+ });
+ const topics=Array.isArray(d.topics)?d.topics.filter(t=>t&&typeof t==='object'&&safeString(t.title)).map(t=>({exercise:Number(t.exercise)||0,title:safeString(t.title),bullets:Array.isArray(t.bullets)?t.bullets.filter(x=>typeof x==='string').slice(0,200):[]})):[];
+ const exerciseNames=d.exerciseNames&&typeof d.exerciseNames==='object'&&!Array.isArray(d.exerciseNames)?d.exerciseNames:{};
+ return {source:safeString(d.source),exerciseNames,sourcePages:d.sourcePages||{},cards,questions,topics};
+}
+function hasData(){return !!database;}
+function exerciseList(){if(!database)return[];const s=new Set([...database.cards,...database.questions,...database.topics].map(x=>x.exercise).filter(x=>Number.isInteger(x)&&x>0));return [...s].sort((a,b)=>a-b);}
+function exerciseName(num){return String(database?.exerciseNames?.[String(num)]||'Ćwiczenie '+num);}
+function fillExerciseOptions(){for(const id of ['card-exercise','quiz-exercise','library-exercise']){
+ const select=$(id);const old=select.value;select.replaceChildren();
+ let opt=document.createElement('option');opt.value='all';opt.textContent='Wszystkie ćwiczenia';select.append(opt);
+ exerciseList().forEach(n=>{const item=document.createElement('option');item.value=String(n);item.textContent=`Ćw. ${n} — ${exerciseName(n)}`;select.append(item);});
+ select.value=[...select.options].some(o=>o.value===old)?old:'all';
+}}
+function matchesExercise(item,val){return val==='all'||String(item.exercise)===val;}
+function updateDashboard(){
+ $('empty-info').classList.toggle('hidden',hasData());$('home-data').classList.toggle('hidden',!hasData());
+ if(!hasData()){
+  setText('settings-db-title','Nie zaimportowano bazy');setText('settings-db-details','Na urządzeniu nie zapisano jeszcze materiałów.');
+  return;
+ }
+ setText('stat-cards',database.cards.length);setText('stat-questions',database.questions.length);setText('stat-known',stats.known.filter(id=>database.cards.some(x=>x.id===id)).length);
+ setText('stat-accuracy',stats.answered?Math.round(stats.right/stats.answered*100)+'%':'—');
+ setText('settings-db-title',database.source||'Prywatna baza fiszek i pytań');
+ setText('settings-db-details',`${database.cards.length} fiszek · ${database.questions.length} pytań ABCDE · ${exerciseList().length} ćwiczeń`);
+ setText('source-mini','Baza zaimportowana');
+}
+function navigate(name){if(!['home','cards','quiz','library','settings'].includes(name))return;
+ activeTab=name;$$('.view').forEach(el=>el.classList.toggle('hidden',el.id!=='view-'+name));
+ $$('[data-tab]').forEach(el=>{const on=el.dataset.tab===name;el.classList.toggle('active',on);el.setAttribute('aria-current',on?'page':'false');});
+ if(name==='cards')prepareCards();if(name==='quiz')showQuizSetup();if(name==='library')renderTopics();if(name==='home')updateDashboard();
+ window.scrollTo({top:0,behavior:'auto'});
+}
+function prepareCards(){if(!database){$('cards-empty').classList.remove('hidden');$('cards-stage').classList.add('hidden');return;}
+ const mode=$('card-mode').value,exercise=$('card-exercise').value,known=new Set(stats.known),repeat=new Set(stats.repeat);
+ cardPool=database.cards.filter(c=>matchesExercise(c,exercise)&&(mode==='all'||(mode==='unknown'&&!known.has(c.id))||(mode==='repeat'&&repeat.has(c.id))));
+ cardPosition=0;cardFlipped=false;renderCard();}
+function renderCard(){const ready=cardPool.length>0;
+ $('cards-empty').classList.toggle('hidden',ready);$('cards-stage').classList.toggle('hidden',!ready);
+ if(!ready)return;
+ const c=cardPool[cardPosition];
+ setText('card-count',`${cardPosition+1} / ${cardPool.length}`);setText('card-topic',c.topic||exerciseName(c.exercise));
+ setText('front-text',c.question);setText('back-text',c.answer);
+ $('flip-inner').classList.toggle('flipped',cardFlipped);$('flip-card').setAttribute('aria-label',cardFlipped?'Pokaż pytanie':'Pokaż odpowiedź');
+ $('card-progress-fill').style.width=(100*(cardPosition+1)/cardPool.length)+'%';
+ $('prev-card').disabled=cardPosition===0;$('next-card').disabled=cardPosition===cardPool.length-1;
+}
+function flipCard(){if(!cardPool.length)return;cardFlipped=!cardFlipped;$('flip-inner').classList.toggle('flipped',cardFlipped);$('flip-card').setAttribute('aria-label',cardFlipped?'Pokaż pytanie':'Pokaż odpowiedź');}
+function moveCard(dir){if(!cardPool.length)return;let n=cardPosition+dir;if(n<0||n>=cardPool.length)return;cardPosition=n;cardFlipped=false;renderCard();}
+async function gradeCard(known){if(!cardPool.length)return;const id=cardPool[cardPosition].id;
+ const a=new Set(stats.known),b=new Set(stats.repeat);if(known){a.add(id);b.delete(id);}else{b.add(id);a.delete(id);}
+ stats.known=[...a];stats.repeat=[...b];await saveStats();updateDashboard();
+ if(cardPosition===cardPool.length-1){if($('card-mode').value!=='all')prepareCards();else{cardFlipped=false;renderCard();showNotice('To była ostatnia fiszka. Możesz przełączyć filtr albo wylosować kolejność.');}}
+ else{moveCard(1);}
+}
+function showQuizSetup(){if(activeTab!=='quiz')return;$('quiz-setup').classList.remove('hidden');$('quiz-running').classList.add('hidden');$('quiz-result').classList.add('hidden');
+ setText('quiz-setup-note',database?`Dostępne pytania: ${database.questions.length}. Warianty A–E są losowane w każdym teście.`:'Najpierw zaimportuj prywatny plik JSON.');
+ $('start-quiz').disabled=!database;
+}
+function startQuiz(){if(!database){navigate('settings');showNotice('Najpierw zaimportuj bazę JSON.');return;}
+ const exercise=$('quiz-exercise').value,mode=$('quiz-mode').value,wrong=new Set(stats.wrong);
+ let pool=database.questions.filter(q=>matchesExercise(q,exercise)&&(mode==='all'||wrong.has(q.id)));
+ if(!pool.length){showNotice('W wybranym zakresie nie ma pytań. Zmień filtry.');return;}
+ pool=shuffle(pool);const amount=$('quiz-length').value;if(amount!=='all')pool=pool.slice(0,Number(amount));
+ quizPool=pool;quizPos=0;quizCorrect=0;quizMissed=[];$('quiz-setup').classList.add('hidden');$('quiz-running').classList.remove('hidden');$('quiz-result').classList.add('hidden');clearNotice();renderQuestion();}
+function renderQuestion(){const q=quizPool[quizPos];quizSelected=false;
+ setText('question-progress',`Pytanie ${quizPos+1} z ${quizPool.length}`);setText('question-score',`${quizCorrect} pkt`);$('question-progress-bar').style.width=(100*quizPos/quizPool.length)+'%';setText('question-text',q.question);
+ $('quiz-feedback').className='feedback hidden';$('quiz-next').classList.add('hidden');$('answer-choices').replaceChildren();
+ shuffle(q.options.map((txt,index)=>({text:txt,index}))).forEach((opt,i)=>{
+  const btn=document.createElement('button');btn.type='button';btn.className='answer-option';
+  const letter=document.createElement('span');letter.className='answer-letter';letter.textContent='ABCDE'[i];
+  const label=document.createElement('span');label.textContent=opt.text;
+  btn.append(letter,label);btn.dataset.index=String(opt.index);btn.addEventListener('click',()=>chooseAnswer(opt.index));$('answer-choices').append(btn);
+ });
+}
+async function chooseAnswer(index){if(quizSelected)return;quizSelected=true;
+ const q=quizPool[quizPos],correct=index===q.correct;
+ if(correct)quizCorrect++;else quizMissed.push(q.id);
+ stats.answered++;if(correct)stats.right++;
+ let wrong=new Set(stats.wrong);if(correct)wrong.delete(q.id);else wrong.add(q.id);stats.wrong=[...wrong];
+ $$('#answer-choices button').forEach(b=>{b.disabled=true;const current=Number(b.dataset.index);if(current===q.correct)b.classList.add('correct');else if(current===index)b.classList.add('wrong');});
+ $('quiz-feedback').className='feedback '+(correct?'good':'bad');setText('feedback-title',correct?'Dobra odpowiedź!':'Nie tym razem.');
+ setText('feedback-text',q.explanation||`Poprawna odpowiedź: ${q.options[q.correct]}`);$('quiz-next').classList.remove('hidden');
+ $('quiz-next').textContent=quizPos===quizPool.length-1?'Zobacz wynik →':'Następne pytanie →';setText('question-score',`${quizCorrect} pkt`);
+ await saveStats();
+}
+function nextQuestion(){if(!quizSelected)return;if(quizPos===quizPool.length-1){finishQuiz();return;}quizPos++;renderQuestion();requestAnimationFrame(()=>{$('quiz-running').scrollIntoView({behavior:'auto',block:'start'});});}
+async function finishQuiz(){stats.tests++;await saveStats();updateDashboard();$('quiz-running').classList.add('hidden');$('quiz-result').classList.remove('hidden');
+ const pct=Math.round((quizCorrect/quizPool.length)*100);setText('quiz-result-score',`${pct}%`);setText('quiz-result-desc',`Poprawne: ${quizCorrect} z ${quizPool.length}. Do powtórki w tej sesji: ${quizMissed.length}.`);$('quiz-retry').disabled=stats.wrong.length===0;
+}
+function renderTopics(){const list=$('library-list');list.replaceChildren();if(!database){const e=document.createElement('div');e.className='panel empty-panel';e.textContent='Najpierw zaimportuj prywatną bazę materiałów.';list.append(e);return;}
+ const terms=$('library-search').value.toLocaleLowerCase('pl'),exercise=$('library-exercise').value;
+ const selected=database.topics.filter(t=>matchesExercise(t,exercise)&&(`${t.title} ${t.bullets.join(' ')}`).toLocaleLowerCase('pl').includes(terms));
+ if(!selected.length){const d=document.createElement('div');d.className='panel empty-panel';d.textContent='Brak zagadnień pasujących do filtrów.';list.append(d);return;}
+ selected.forEach(t=>{
+ const d=document.createElement('details');d.className='topic-entry';const summary=document.createElement('summary');summary.textContent=`Ćw. ${t.exercise} · ${t.title}`;const body=document.createElement('div');body.className='topic-body';const ul=document.createElement('ul');
+ t.bullets.forEach(x=>{const li=document.createElement('li');li.textContent=x;ul.append(li);});body.append(ul);d.append(summary,body);list.append(d);
+ });
+}
+function askFile(){$('file-input').click();}
+async function importFile(file){if(!file)return;clearNotice();if(file.size>15*1024*1024){showNotice('Plik jest za duży (maksymalnie 15 MB).');return;}
+ try{
+  const parsed=JSON.parse(await file.text());const norm=validateDatabase(parsed);
+  if(database&&!window.confirm('Zastąpić obecną bazę i wyzerować jej postępy?'))return;
+  database=norm;stats=emptyStats();
+  if(parsed._studydeckProgress&&typeof parsed._studydeckProgress==='object'){const old=parsed._studydeckProgress;stats={known:Array.isArray(old.known)?old.known.filter(x=>typeof x==='string'):[],repeat:Array.isArray(old.repeat)?old.repeat.filter(x=>typeof x==='string'):[],wrong:Array.isArray(old.wrong)?old.wrong.filter(x=>typeof x==='string'):[],answered:Number(old.answered)||0,right:Number(old.right)||0,tests:Number(old.tests)||0};}
+  try{await writeStore('dataset',database);await writeStore('progress',stats);}catch(error){storeAvailable=false;showNotice('Baza została załadowana, ale zapis na urządzeniu się nie powiódł. Eksportuj kopię przed zamknięciem aplikacji.');}
+  fillExerciseOptions();updateDashboard();navigate('cards');if(storeAvailable)showNotice(`Zaimportowano ${norm.cards.length} fiszek i ${norm.questions.length} pytań. Dane pozostają na Twoim urządzeniu.`);
+ }catch(err){showNotice('Import nieudany: '+(err.message||'Nieprawidłowy format pliku.'));}
+}
+function downloadFile(name,text,mime){const blob=new Blob([text],{type:mime||'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.style.display='none';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
+function exportBackup(){if(!database){showNotice('Brak bazy do eksportu.');return;}
+ const payload={...database,_studydeckProgress:stats};downloadFile('STUDYDECK_PRYWATNA_KOPIA.json',JSON.stringify(payload,null,2));showNotice('Kopia prywatna gotowa. Nie umieszczaj tego pliku na GitHubie.');}
+async function clearProgress(){if(!database)return;if(!confirm('Wyczyścić wszystkie wyniki i oznaczenia fiszek?'))return;stats=emptyStats();await saveStats();updateDashboard();navigate('home');showNotice('Wyniki wyczyszczone. Baza pozostała na urządzeniu.');}
+async function deleteDatabase(){if(!database)return;if(!confirm('Usunąć prywatną bazę i postępy z tego urządzenia?'))return;
+ database=null;stats=emptyStats();await Promise.all([deleteStore('dataset'),deleteStore('progress')]);fillExerciseOptions();updateDashboard();navigate('home');showNotice('Baza i postępy usunięte z tego urządzenia.');}
+function bind(){
+ $$('[data-tab]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.tab)));
+ $$('[data-open-import]').forEach(b=>b.addEventListener('click',askFile));
+ $('hero-import').addEventListener('click',askFile);
+ $('file-input').addEventListener('change',async e=>{await importFile(e.target.files[0]);e.target.value='';});
+ $('go-cards').addEventListener('click',()=>navigate('cards'));$('go-quiz').addEventListener('click',()=>navigate('quiz'));
+ ['card-exercise','card-mode'].forEach(id=>$(id).addEventListener('change',prepareCards));
+ $('shuffle-cards').addEventListener('click',()=>{if(!cardPool.length)return;cardPool=shuffle(cardPool);cardPosition=0;cardFlipped=false;renderCard();});
+ $('flip-card').addEventListener('click',flipCard);$('prev-card').addEventListener('click',()=>moveCard(-1));$('next-card').addEventListener('click',()=>moveCard(1));
+ $('mark-known').addEventListener('click',()=>gradeCard(true));$('mark-repeat').addEventListener('click',()=>gradeCard(false));
+ $('start-quiz').addEventListener('click',startQuiz);$('quiz-next').addEventListener('click',nextQuestion);
+ $('quiz-abort').addEventListener('click',()=>{if(confirm('Zakończyć aktualny test?')){quizPool=[];showQuizSetup();}});
+ $('quiz-again').addEventListener('click',showQuizSetup);$('quiz-retry').addEventListener('click',()=>{$('quiz-mode').value='wrong';showQuizSetup();startQuiz();});
+ $('library-exercise').addEventListener('change',renderTopics);$('library-search').addEventListener('input',renderTopics);
+ $('export-backup').addEventListener('click',exportBackup);$('reset-progress').addEventListener('click',clearProgress);$('delete-database').addEventListener('click',deleteDatabase);
+ $('hero-how').addEventListener('click',()=>openDialog());$('close-dialog').addEventListener('click',()=>closeDialog());$('dialog-ok').addEventListener('click',()=>closeDialog());
+ $('install-button').addEventListener('click',async()=>{if(deferredInstall){const prompt=deferredInstall;deferredInstall=null;await prompt.prompt();return;}openDialog();});
+ document.addEventListener('keydown',e=>{if(activeTab==='cards'&&cardPool.length&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){
+  if(e.key==='ArrowRight'){e.preventDefault();moveCard(1);}if(e.key==='ArrowLeft'){e.preventDefault();moveCard(-1);}if(e.code==='Space'){e.preventDefault();flipCard();}
+ }});
+ let startX=null;const card=$('flip-card');card.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;},{passive:true});card.addEventListener('touchend',e=>{if(startX===null)return;const d=e.changedTouches[0].clientX-startX;startX=null;if(Math.abs(d)>65){e.preventDefault();e.stopPropagation();moveCard(d<0?1:-1);setTimeout(()=>{ /* click is not fired after preventDefault in browsers honoring it */ },0);}},{passive:false});
+ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;});
+}
+function openDialog(){const d=$('how-dialog');if(typeof d.showModal==='function')d.showModal();else d.setAttribute('open','');}
+function closeDialog(){const d=$('how-dialog');if(typeof d.close==='function')d.close();else d.removeAttribute('open');}
+async function init(){bind();try{db=await openDatabase();const raw=await readStore('dataset');if(raw){database=validateDatabase(raw);const prev=await readStore('progress');if(prev&&typeof prev==='object')stats={...emptyStats(),...prev};}}
+ catch(e){storeAvailable=false;showNotice('Nie można użyć trwałej pamięci. Aplikacja nadal pozwoli na import, ale dane mogą zniknąć po jej zamknięciu.');}
+ fillExerciseOptions();updateDashboard();showQuizSetup();
+ 
+}
+init();
+
+</script>
+</body>
+</html>
